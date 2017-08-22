@@ -3,6 +3,15 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'accounts-front',
+    contentSecurityPolicy: {
+    'default-src': "'self' *",
+    'script-src': "'self' 'unsafe-inline' *",
+    'connect-src': "'self' *",
+    'font-src': "'self'  data: http://fonts.gstatic.com * ",
+    'media-src': "'self' *",
+    'style-src': "'self' 'unsafe-inline' *",
+    'img-src' : "'self' data: http://fonts.gstatic.com *"
+  },
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
@@ -24,6 +33,8 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.APP.host =  'http://localhost:3000';
+
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
