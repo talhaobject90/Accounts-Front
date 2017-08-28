@@ -1,0 +1,53 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							Date
+						</th>
+						<th>
+							Cash in Hand
+						</th>
+						<th>
+							Profit
+						</th>
+            <th>
+							Action
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+
+          {{#each dailies as |daily index|}}
+          <td>
+            {{incrementone index}}
+          </td>
+          <td>
+            {{moment-format daily.date 'DD-MM-YYYY'}}
+          </td>
+          <td>
+            {{daily.cashinhand}}
+          </td>
+          <td>
+            {{daily.profit}}
+          </td>
+          <td>
+            {{link-to 'View' "dashboard.dailies.daily.view" daily}}
+          </td>
+
+          {{/each}}
+
+
+				</tbody>
+			</table>
+
+
+
+		</div>
+	</div>
+</div>
